@@ -1,0 +1,35 @@
+// proto/blog.proto
+syntax = "proto3";
+
+option go_package="./proto";
+message Post {
+  int32 post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string publication_date = 5;
+  repeated string tags = 6;
+}
+
+service BlogService {
+  rpc CreatePost(Post) returns (Post);
+  rpc ReadPost(PostIDRequest) returns (Post);
+  rpc UpdatePost(UpdatePostRequest) returns (Post);
+  rpc DeletePost(PostIDRequest) returns (DeleteResponse);
+}
+
+message PostIDRequest {
+  int32 post_id = 1;
+}
+
+message UpdatePostRequest {
+  int32 post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  repeated string tags = 6;
+}
+
+message DeleteResponse {
+  bool success = 1;
+}
