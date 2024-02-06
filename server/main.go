@@ -23,15 +23,7 @@ type blogServer struct {
 
 func main() {
 
-	// //Create a new Database instance
-	// db, err := daos.NewDatabase()
-	// if err != nil {
-	// 	log.Fatalf("Failed to create database: %v", err)
-	// }
-
-	// // //Create a new BlogServiceServer instance
-	// blogService := service.NewBlogServiceServer(db, &blogServer{})
-	// log.Printf("blogService: %v", blogService)
+	
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("Failed to start the server: %s", err.Error())
